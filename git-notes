@@ -1,0 +1,120 @@
+Git:
+Can use git in linux OS or git-bash in windows.
+
+Create new directory in ( Desktop or /root ) # mkdir GIT
+create your local repository # mkdir GIT/Devops-master  (This is the  WORKING DIRECTORY)
+
+cd GIT/Devops-local
+git init  -> To initiate this as a git repository
+
+Create one  new file inside the working directory.
+
+echo "This is the file-1 in the local repo" > file-1
+
+Check:
+git status
+git diff
+git log
+
+Add these files to index ( Also we called STAGING AREA which is a 
+place we are moving the modified files to make it ready for a commit.)
+ [ Not REALLY moving the original file created]
+
+git add . 
+ or
+git add file-1
+
+##git config --global core.autocrlf false ## To solve --- warning: LF will be replaced by CRLF in file-1.
+
+git status
+git diff
+git log
+
+Now we need to do a commit to update the  HEAD of our local repository. 
+(HEAD is the actual place from which we push to the origin or remote systems)
+[Remember this is also not a new directory...but a snapshot of
+ your working directory with the files that are committed)].
+         
+            git add > giit commit > git push 
+WORKIN DIRECTORY > INDEX > LOCAL REPO > REMOTE REPO
+
+git commit -m "Wow .. this is my first commit inside Devops-local"
+First time  commit will tell you to provide your identity. (Git just want to know you)
+ git config --global user.name "name"
+ git config --globaluser.email "email"
+
+git status
+git diff
+git log
+===========
+edit the file with  one more line 
+cat file1
+git status 
+You want to keep the original file ( how it was before editing) before staging.
+ie, before using git add filename,
+git checkout -- file1  
+
+
+==========================
+Create a new file file-2 inside Devops-local
+echo "This is the file-2 in the local repo" > file-2
+Add to staging 
+Check
+Before commit you think you need to change the content. So you need to remove it from staging.
+git status
+##git reset HEAD file-2 # This will remove file from staging area.( That means you are now just before the 'git add'.
+Now we are in the same state where: 1 file committed and one new file-2 created. Let's modify the file-2
+echo "Don't create no more files with same type of content ...getting bored ok?" > file-2
+Add to staging 
+Do commit  with message "file-2 modified"
+check
+=============
+The same step can be repeated with "git rm --cached file-2"  instead of the reset head command. 
+But then it will become an untracked file. 
+
+Add to staging
+git status
+git rm --cached  file-2
+git status
+===========
+
+ =============
+
+ Note: file-3  first committed with proper content. Then we edited it.
+ So we can recover the file-3 state at its first commit.
+ vi file3 (apple original)
+ git add file3
+ git commit -m "apple"
+
+ vi file3 (now orange)
+ git add file3
+ git commit -m "orange"
+ check
+ git log
+ git checkout <commitvid with apple> file-3   (Now the file content will be "apple original").
+ But we need to complete the commit.
+ git status
+ Do a commit "apple is back"
+ git status
+ =====================
+ Now your team mate  came and informed,  file-2 content also not as per the policy.
+You decided to delete the file from working directory.
+rm file-2
+git rm file-2
+git status
+ git commit -m "file-2 deleted"
+ ===========
+After creating a file in repository , if you want commit the file without staging
+
+echo "Direct to HEAD without staging" > fastwork
+git commit -a -m "without staging"
+
+=============== 
+ If you want to copy/ clone a project from github use below command
+
+git clone https://<github path>
+==========
+If you create a directory, git will not track it. If you add a file inside that directory, 
+git will start tracking that file.
++++++++++++++++++++++++++++++++++++++
+
