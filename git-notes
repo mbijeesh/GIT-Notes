@@ -139,6 +139,7 @@ git reset file - [ Unstage the file, but it preserve the file content] [Just rem
 git reset [commit] - Undo all the commits after the specified commit bu preserve changes locally]
 git reset --hard [commit] -  Discards all history and goes back to sspecified commit. 
 git rm  file - [ Delete the file  from working directoy and stages the deletion for commit]
+
 git log filename  [  show the logs for given file]
 
 ==============
@@ -153,3 +154,4 @@ If you create a directory, git will not track it. If you add a file inside that 
 git will start tracking that file.
 +++++++++++++++++++++++++++++++++++++
 
+https://dzone.com/articles/top-20-git-commands-with-examples 
