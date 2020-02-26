@@ -1,10 +1,10 @@
 Git:
 Can use git in linux OS or git-bash in windows.
 
-Create new directory in ( Desktop or /root ) # mkdir GIT
-create your local repository # mkdir GIT/Devops-master  (This is the  WORKING DIRECTORY)
+Create new directory in Desktop.
+mkdir gittest (This is the  WORKING DIRECTORY)
 
-cd GIT/Devops-local
+cd gittest
 git init  -> To initiate this as a git repository
 
 Create one  new file inside the working directory.
