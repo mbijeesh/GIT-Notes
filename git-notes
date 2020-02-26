@@ -110,6 +110,20 @@ echo "Direct to HEAD without staging" > fastwork
 git commit -a -m "without staging"
 
 =============== 
+cat apple
+"Apple file - content is apple"
+
+git add file apple
+git commit -m " content apple"
+vi apple
+"Apple file - content is orange"   [ we just  wrongly added the content]
+git commit -m " content modified"
+git log  -  note down the commit ids
+Now  you want to revert the commit [this will remove the commits till the commit id mentioned.It will preserve the local changes]
+git reset <commit id of "content apple">  
+git log - you cannot see the commits after the given commit id.
+git status  - will show you file is modified, because we only reverted the commit. 
+====
  If you want to copy/ clone a project from github use below command
 
 git clone https://<github path>
