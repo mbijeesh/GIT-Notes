@@ -25,6 +25,7 @@ git add .
 git add file-1
 
 ##git config --global core.autocrlf false ## To solve --- warning: LF will be replaced by CRLF in file-1.
+##
 
 git status
 git diff
