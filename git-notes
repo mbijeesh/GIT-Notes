@@ -128,18 +128,46 @@ To make the file content  back to as apple, do
 git checkout apple.
 This will match with the commit (local repo) and so git status show clean tree. 
 ====
+Merging
+git add file1
+git commit -m "initialfile"
+git branch newbranch
+git checkout  newbranch
+vi file1
+git add file1
+git commit -m "file1 updated from newbranch"
+git checkout master
+cat file1
+git merge newbranch
+cat file1
+git log
+========
+git remote add origin <remote server url>
+===
+
 git config - configure parameter for git.
 git init  - [ initialize working directory'
 git add file - [ add the file to be tracked by git]
 git commit -m "commit message" -  [  commit the changes to local repo with the commit message]
-git commit -a -m " message [ will do staging and commit in the single command]
+git commit -a -m " message - [ will do staging and commit in the single command]
 git status  -  [  list the files that have to be commited - both staged and non-staged]
-git diff  -staged  [ give the difference  between staged file and and the file in latest version at local repo.]
-git diff branch1 branch2  [ difference between two branches] 
+git diff  -staged  - [ give the difference  between staged file and and the file in latest version at local repo.]
+git diff branch1 branch2 -  [ difference between two branches] 
 git reset file - [ Unstage the file, but it preserve the file content] [Just removing from staging area]
-git reset [commit] - Undo all the commits after the specified commit bu preserve changes locally]
-git reset --hard [commit] -  Discards all history and goes back to sspecified commit. 
+git reset <commit> - Undo all the commits after the specified commit bu preserve changes locally]
+git reset --hard <commit> -  Discards all history and goes back to sspecified commit. 
 git rm  file - [ Delete the file  from working directoy and stages the deletion for commit]
+git branch  -  [ list all branches in current repositoy ] 
+git branch <branchname> - [ create new branch]
+git branch -d <branchname> - [ delete a branch]
+git checkout <branchname> - [ to switch from one branch to other ] 
+git checkout -b  <new branch name>  - [ create a new branch and then switched to it]
+git merge <branch name> - [ merges specified branch history into the current branch]
+git remote - [ connect your local repo to remote server]
+git push <origin> <dev> - [ send committed changes of master branch to remote repository]
+git pull <repo link> - [ fetch and merge changes on remote server to working directory]
+git stash save - [ save current working directory and index in a temporary store, and revert the working directory to match the HEAD commit.] 
+git stash pop -  [ revert to the most recently stashed files back ].
 
 git log filename  [  show the logs for given file]
 
