@@ -36,10 +36,10 @@ Now we need to do a commit to update the  HEAD of our local repository.
 [Remember this is also not a new directory...but a snapshot of
  your working directory with the files that are committed)].
          
-            git add > giit commit > git push 
+            git add > git commit > git push 
 WORKIN DIRECTORY > INDEX > LOCAL REPO > REMOTE REPO
 
-git commit -m "Wow .. this is my first commit inside Devops-local"
+git commit -m "Wow .. this is my first commit inside gittest"
 First time  commit will tell you to provide your identity. (Git just want to know you)
  git config --global user.name "name"
  git config --globaluser.email "email"
@@ -54,7 +54,6 @@ git status
 You want to keep the original file ( how it was before editing) before staging.
 ie, before using git add filename,
 git checkout -- file1  
-
 
 ==========================
 Create a new file file-2 inside Devops-local
@@ -148,6 +147,7 @@ git remote add origin <remote server url>
 git config - configure parameter for git.
 git init  - [ initialize working directory'
 git add file - [ add the file to be tracked by git]
+git checkout -- <file name>   - [ From working directory, revert the changes to previous state]
 git commit -m "commit message" -  [  commit the changes to local repo with the commit message]
 git commit -a -m " message - [ will do staging and commit in the single command]
 git status  -  [  list the files that have to be commited - both staged and non-staged]
@@ -155,8 +155,10 @@ git diff  -staged  - [ give the difference  between staged file and and the file
 git diff branch1 branch2 -  [ difference between two branches] 
 git reset file - [ Unstage the file, but it preserve the file content] [Just removing from staging area]
 git reset <commit> - Undo all the commits after the specified commit bu preserve changes locally]
-git reset --hard <commit> -  Discards all history and goes back to sspecified commit. 
+git reset --hard <commit> -  Discards all history and goes back to specified commit. 
 git rm  file - [ Delete the file  from working directoy and stages the deletion for commit]
+git rm  --cached file-1 - [ delete the file from Staging area ] 
+git reset HEAD file-2  -  [ delete the file from staging area ]
 git branch  -  [ list all branches in current repositoy ] 
 git branch <branchname> - [ create new branch]
 git branch -d <branchname> - [ delete a branch]
