@@ -198,6 +198,8 @@ git checkout master
 git merge new-feature
 git branch -d new-feature
 ==============
+git fetch  +  git merge  = git pull
+=====
 If you create a directory, git will not track it. If you add a file inside that directory, 
 git will start tracking that file.
 +++++++++++++++++++++++++++++++++++++
