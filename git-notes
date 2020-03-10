@@ -64,7 +64,7 @@ Before commit you think you need to change the content. So you need to remove it
 git status
 ##git reset HEAD file-2 # This will remove file from staging area.( That means you are now just before the 'git add'.
 Now we are in the same state where: 1 file committed and one new file-2 created. Let's modify the file-2
-echo "Don't create no more files with same type of content ...getting bored ok?" > file-2
+echo "Content inside  file-2 modified" > file-2
 Add to staging 
 Do commit  with message "file-2 modified"
 check
@@ -77,8 +77,6 @@ git status
 git rm --cached  file-2
 git status
 ===========
-
- =============
 
  Note: file-3  first committed with proper content. Then we edited it.
  So we can recover the file-3 state at its first commit.
@@ -97,23 +95,28 @@ git status
  Do a commit "apple is back"
  git status
  =====================
- Now your team mate  came and informed,  file-2 content also not as per the policy.
-You decided to delete the file from working directory.
+ You decided to delete the file-2 from working directory and update the local repo. 
 rm file-2
 git rm file-2
 git status
  git commit -m "file-2 deleted"
+ 
+ Now file-2 is not inside the working directory and local repo. How to recover file-2 ?
+ git checkout <commit id just before deleting the file-2>   file-2
+ git commit -m "file-2 recovered" 
  ===========
 After creating a file in repository , if you want commit the file without staging
-
+For newly created file, first time  we need to do  'git add'  manually.
 echo "Direct to HEAD without staging" > fastwork
+git add fastwork
+modify the file 'fastwork'.
+git status  [ will say to do git add, but we can  add  and commit using below command]
 git commit -a -m "without staging"
 
 =============== 
 cat apple
 "Apple file - content is apple"
-
-git add file apple
+git add  apple
 git commit -m " content apple"
 vi apple
 "Apple file - content is orange"   [ we just  wrongly added the content]
@@ -122,7 +125,7 @@ git log  -  note down the commit ids
 Now  you want to revert the commit [this will remove the commits till the commit id mentioned.It will preserve the local changes]
 git reset <commit id of "content apple">  
 git log - you cannot see the commits after the given commit id.
-git status  - will show you file is modified, because we only reverted the commit. 
+git status  - will show you file inside  working directory is not  modified, because we only reverted the commit. 
 To make the file content  back to as apple, do 
 git checkout apple.
 This will match with the commit (local repo) and so git status show clean tree. 
